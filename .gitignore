@@ -1,0 +1,16 @@
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Large raw dataset
+raw_animals/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+#preview images for scale testing
+preview.jpg
