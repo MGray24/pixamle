@@ -3,7 +3,7 @@ from pathlib import Path
 
 SIZE = 512
 
-img_path = Path("raw_animals/caterpillar.jpg")  # change this
+img_path = Path("raw_animals/zebra.jpg")  # change this
 
 original = Image.open(img_path).convert("RGB")
 processed = ImageOps.fit(original, (SIZE, SIZE), method=Image.Resampling.LANCZOS)
