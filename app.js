@@ -1,4 +1,3 @@
-// Get HTML elements from the page
 const canvas = document.getElementById("animalCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -7,22 +6,15 @@ const guessInput = document.getElementById("guessInput");
 
 const message = document.getElementById("message");
 const wrongGuessesText = document.getElementById("wrongGuesses");
+const devAnswer = document.getElementById("devAnswer");
 
-// Game variables
 let animals = [];
 let currentAnimal = null;
 let animalImage = new Image();
 
 let wrongGuesses = 0;
-
-// Start very blurry/pixelated.
-// This means the image is first drawn as 4x4 pixels.
 let pixelResolution = 4;
 
-/*
-  Load the animals from data/animals.json.
-  This file tells the game what animals exist and where their images are.
-*/
 async function loadAnimals() {
   const response = await fetch("data/animals.json");
   animals = await response.json();
@@ -31,35 +23,27 @@ async function loadAnimals() {
 
   animalImage.src = currentAnimal.image;
 
-  animalImage.onload = function () {
-    /*
-      Make the canvas internally match the real image size.
-
-      This is important because it prevents unnecessary blurriness.
-      If your processed images are 512x512, the canvas becomes 512x512.
-    */
+  animalImage.onload = () => {
     canvas.width = animalImage.naturalWidth;
     canvas.height = animalImage.naturalHeight;
 
     drawAnimal();
-    updateWrongGuessesText();
+    updateWrongGuessText();
+
+    // DEV ONLY
+    devAnswer.textContent = `Answer: ${currentAnimal.name}`;
   };
 }
 
-/*
-  Choose the same animal for everyone on the same day.
-
-  This is not random.
-  It uses the current date to pick an index from the animals array.
-*/
 function chooseTodaysAnimal() {
   const today = new Date();
 
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-
-  const dateString = `${year}-${month}-${day}`;
+  const dateString =
+    today.getFullYear() +
+    "-" +
+    (today.getMonth() + 1) +
+    "-" +
+    today.getDate();
 
   let total = 0;
 
@@ -72,42 +56,20 @@ function chooseTodaysAnimal() {
   return animals[index];
 }
 
-/*
-  Draw the animal onto the canvas.
-
-  If pixelResolution is small, like 4, the image looks very blocky.
-  If pixelResolution is larger, like 128, the image is clearer.
-  If pixelResolution reaches the real image size, we draw the original image.
-*/
 function drawAnimal() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  /*
-    Once the resolution is high enough, draw the original image directly.
-    This avoids the final image looking blurry.
-  */
   if (pixelResolution >= canvas.width) {
-    ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(animalImage, 0, 0);
+    drawOriginalImage();
     return;
   }
 
-  /*
-    Create a tiny hidden canvas.
-
-    Example:
-    If pixelResolution is 4, this canvas is 4x4.
-    We draw the full animal into that tiny canvas.
-  */
   const tinyCanvas = document.createElement("canvas");
   const tinyCtx = tinyCanvas.getContext("2d");
 
   tinyCanvas.width = pixelResolution;
   tinyCanvas.height = pixelResolution;
 
-  /*
-    This drawImage shrinks the real animal down to 4x4, 8x8, etc.
-  */
   tinyCtx.drawImage(
     animalImage,
     0,
@@ -116,19 +78,8 @@ function drawAnimal() {
     pixelResolution
   );
 
-  /*
-    Turn smoothing off before stretching the tiny image.
-
-    This is what creates the pixel-art look.
-  */
   ctx.imageSmoothingEnabled = false;
 
-  /*
-    Draw the tiny image back onto the real canvas.
-
-    Example:
-    4x4 gets stretched up to 512x512.
-  */
   ctx.drawImage(
     tinyCanvas,
     0,
@@ -142,10 +93,23 @@ function drawAnimal() {
   );
 }
 
-/*
-  Handle the user submitting a guess.
-*/
-guessForm.addEventListener("submit", function (event) {
+function drawOriginalImage() {
+  ctx.imageSmoothingEnabled = true;
+
+  ctx.drawImage(
+    animalImage,
+    0,
+    0,
+    animalImage.naturalWidth,
+    animalImage.naturalHeight,
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+}
+
+guessForm.addEventListener("submit", event => {
   event.preventDefault();
 
   const guess = guessInput.value.trim().toLowerCase();
@@ -154,58 +118,41 @@ guessForm.addEventListener("submit", function (event) {
     return;
   }
 
-  /*
-    Build a list of acceptable answers.
-
-    Example:
-    name: "Cat"
-    aliases: ["cat", "kitty"]
-
-    correctAnswers becomes:
-    ["cat", "cat", "kitty"]
-  */
-  const correctAnswers = [
+  const validAnswers = [
     currentAnimal.name.toLowerCase(),
     ...currentAnimal.aliases.map(alias => alias.toLowerCase())
   ];
 
-  if (correctAnswers.includes(guess)) {
+  if (validAnswers.includes(guess)) {
     message.textContent = `Correct! It was ${currentAnimal.name}.`;
 
-    // Fully reveal the original image
     pixelResolution = canvas.width;
+
     drawAnimal();
 
-    // Stop more guesses
     guessInput.disabled = true;
-  } else {
+  }
+  else {
     wrongGuesses++;
-    message.textContent = "Wrong guess. The image is clearer now.";
 
-    /*
-      Double the resolution.
-
-      4 -> 8 -> 16 -> 32 -> 64 -> 128 -> 256 -> 512
-    */
     pixelResolution *= 2;
 
     if (pixelResolution > canvas.width) {
       pixelResolution = canvas.width;
     }
 
+    message.textContent = "Incorrect.";
+
     drawAnimal();
-    updateWrongGuessesText();
+    updateWrongGuessText();
   }
 
   guessInput.value = "";
 });
 
-/*
-  Show how many wrong guesses the user has made.
-*/
-function updateWrongGuessesText() {
-  wrongGuessesText.textContent = `Wrong guesses: ${wrongGuesses}`;
+function updateWrongGuessText() {
+  wrongGuessesText.textContent =
+    `Wrong guesses: ${wrongGuesses}`;
 }
 
-// Start the game
 loadAnimals();
