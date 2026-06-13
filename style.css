@@ -13,104 +13,114 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at top, #1a2a20 0%, #0b0f14 42%);
+    radial-gradient(circle at top, #1b2d22 0%, #0b0f14 45%);
   color: #f2f5f7;
 }
 
-/*
-  The page has three columns:
-
-  left card | centered game | empty right space
-
-  The empty right space balances the left card,
-  so the game stays visually centered.
-*/
 .page {
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 280px 560px 280px;
+  grid-template-columns: 290px 560px 290px;
   gap: 32px;
 
   align-items: center;
   justify-content: center;
 
-  padding: 24px;
+  padding: 20px;
 }
 
-/* Left how-to card */
-.info-card {
-  width: 280px;
-  padding: 22px;
-
-  background: rgba(23, 29, 37, 0.9);
+.info-card,
+.game-card {
+  background: rgba(23, 29, 37, 0.94);
   border: 1px solid #28303a;
   border-radius: 24px;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
 }
 
+.info-card {
+  width: 290px;
+  padding: 24px;
+}
+
 .info-card h2 {
-  margin: 0 0 16px;
-  font-size: 26px;
+  margin: 0 0 18px;
+  font-size: 28px;
 }
 
 .info-card p {
   margin: 12px 0;
-  color: #b9c2cc;
+  color: #c4ced8;
   line-height: 1.45;
+  font-size: 16px;
 }
 
-/*
-  The progression now stacks/wraps nicely
-  instead of forcing a long horizontal row.
-*/
-.demo-strip {
+.progress-demo {
   margin-top: 22px;
+}
 
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
+.demo-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.demo-card p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.demo-arrow {
+  margin: 8px 0 8px 27px;
+  color: #65c466;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.progress-demo {
+  margin-top: 22px;
 }
 
 .demo-step {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.demo-strip img {
-  width: 54px;
-  height: 54px;
+.demo-step p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.demo-arrow {
+  margin: 8px 0 8px 27px;
+  color: #65c466;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.demo-canvas {
+  width: 58px;
+  height: 58px;
 
   flex-shrink: 0;
 
-  border-radius: 12px;
-  border: 1px solid #3a4652;
+  background: white;
+  border: 1px solid #3b4652;
+  border-radius: 14px;
 }
 
-.demo-step span {
-  color: #b9c2cc;
-  font-size: 14px;
-}
-
-/* Main game card */
 .game-card {
   width: 560px;
-  padding: 26px;
-
+  padding: 24px 28px 22px;
   text-align: center;
-
-  background: rgba(23, 29, 37, 0.9);
-  border: 1px solid #28303a;
-  border-radius: 24px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
 }
 
 h1 {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
 
-  font-size: 64px;
-  line-height: 1;
+  font-size: 68px;
+  line-height: 0.95;
   letter-spacing: -4px;
   font-weight: 900;
 }
@@ -127,15 +137,15 @@ h1 {
 canvas {
   display: block;
 
-  width: 440px;
-  height: 440px;
+  width: min(430px, 48vh);
+  height: min(430px, 48vh);
 
   background: white;
   border-radius: 14px;
 }
 
 form {
-  margin-top: 22px;
+  margin-top: 20px;
 
   display: flex;
   justify-content: center;
@@ -178,28 +188,83 @@ button:hover {
 }
 
 #message {
-  min-height: 28px;
-  margin: 16px 0 0;
-
-  font-size: 20px;
+  min-height: 24px;
+  margin: 14px 0 10px;
+  color: #c4ced8;
+  font-size: 18px;
 }
 
-#wrongGuesses {
-  margin: 8px 0 0;
-  color: #b9c2cc;
+.guess-slots {
+  width: 420px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
 }
 
-#devAnswer {
-  margin: 18px 0 0;
-  color: #75808c;
-  font-size: 14px;
+.guess-slot {
+  height: 14px;
+
+  background: #10161c;
+  border: 1px solid #303a45;
+  border-radius: 999px;
 }
 
-/*
-  Smaller screen fallback.
-  On narrow screens, allow scrolling because otherwise
-  the layout would be unusable.
-*/
+.guess-slot.filled {
+  background: #65c466;
+  border-color: #65c466;
+}
+
+.result-panel {
+  margin-top: 22px;
+  padding: 20px;
+
+  background: #10161c;
+  border: 1px solid #303a45;
+  border-radius: 18px;
+}
+
+.result-panel h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.result-panel p {
+  margin: 0;
+  color: #c4ced8;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+.right-spacer {
+  width: 290px;
+}
+
+@media (max-height: 760px) {
+  h1 {
+    font-size: 58px;
+    margin-bottom: 14px;
+  }
+
+  .game-card {
+    padding-top: 20px;
+    padding-bottom: 18px;
+  }
+
+  form {
+    margin-top: 16px;
+  }
+
+  canvas {
+    width: min(390px, 46vh);
+    height: min(390px, 46vh);
+  }
+}
+
 @media (max-width: 1050px) {
   html,
   body {
@@ -207,11 +272,15 @@ button:hover {
   }
 
   .page {
-    min-height: 100vh;
     height: auto;
+    min-height: 100vh;
 
     grid-template-columns: 1fr;
     justify-items: center;
+  }
+
+  .right-spacer {
+    display: none;
   }
 
   .info-card {
@@ -223,8 +292,8 @@ button:hover {
   }
 
   canvas {
-    width: min(440px, 75vw);
-    height: min(440px, 75vw);
+    width: min(430px, 78vw);
+    height: min(430px, 78vw);
   }
 
   form {
@@ -234,6 +303,10 @@ button:hover {
 
   input,
   button {
-    width: min(320px, 75vw);
+    width: min(330px, 76vw);
+  }
+
+  .guess-slots {
+    width: min(420px, 76vw);
   }
 }

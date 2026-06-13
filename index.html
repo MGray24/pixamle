@@ -13,15 +13,28 @@
 
       <p>Guess today's hidden animal.</p>
       <p>Each wrong guess makes the image clearer.</p>
-      <p>Try to solve it before the full picture is revealed.</p>
+      <p>Solve it before you run out of guesses.</p>
 
-      <div class="demo-strip">
-        <img src="https://placehold.co/72x72/65c466/0b0f14?text=4" alt="Very pixelated example">
-        <span>→</span>
-        <img src="https://placehold.co/72x72/65c466/0b0f14?text=8" alt="Less pixelated example">
-        <span>→</span>
-        <img src="https://placehold.co/72x72/65c466/0b0f14?text=16" alt="Clearer example">
-      </div>
+      <div class="progress-demo">
+        <div class="demo-step">
+            <canvas class="demo-canvas" data-resolution="6"></canvas>
+            <p>Starts blocky</p>
+        </div>
+
+        <div class="demo-arrow">↓</div>
+
+        <div class="demo-step">
+            <canvas class="demo-canvas" data-resolution="16"></canvas>
+            <p>Gets clearer</p>
+        </div>
+
+        <div class="demo-arrow">↓</div>
+
+        <div class="demo-step">
+            <canvas class="demo-canvas" data-resolution="64"></canvas>
+            <p>Final reveal</p>
+        </div>
+        </div>
     </section>
 
     <section class="game-card">
@@ -31,23 +44,33 @@
         <canvas id="animalCanvas"></canvas>
       </div>
 
-      <form id="guessForm">
-        <input
-          id="guessInput"
-          type="text"
-          placeholder="Guess an animal..."
-          autocomplete="off"
-        >
+      <div id="playArea">
+        <form id="guessForm">
+          <input
+            id="guessInput"
+            type="text"
+            placeholder="Guess an animal..."
+            autocomplete="off"
+          >
 
-        <button type="submit">Guess</button>
-      </form>
+          <button type="submit">Guess</button>
+        </form>
 
-      <p id="message"></p>
-      <p id="wrongGuesses"></p>
+        <p id="message"></p>
 
-      <!-- DEV ONLY - comment out before release
-      <p id="devAnswer"></p> -->
+        <div id="guessSlots" class="guess-slots"></div>
+      </div>
+
+      <div id="resultPanel" class="result-panel hidden">
+        <h2 id="resultTitle"></h2>
+        <p id="resultText"></p>
+      </div>
+
+      <!-- DEV ONLY - comment out before release -->
+      <!-- <p id="devAnswer"></p> -->
     </section>
+
+    <div class="right-spacer"></div>
   </main>
 
   <script src="app.js"></script>

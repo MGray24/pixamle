@@ -1,283 +1,11 @@
 [
   {
-    "id": "antelope",
-    "name": "Antelope",
+    "id": "ox",
+    "name": "Ox",
     "aliases": [
-      "antelope"
+      "ox"
     ],
-    "image": "assets/animals/antelope.webp"
-  },
-  {
-    "id": "badger",
-    "name": "Badger",
-    "aliases": [
-      "badger"
-    ],
-    "image": "assets/animals/badger.webp"
-  },
-  {
-    "id": "bat",
-    "name": "Bat",
-    "aliases": [
-      "bat"
-    ],
-    "image": "assets/animals/bat.webp"
-  },
-  {
-    "id": "bear",
-    "name": "Bear",
-    "aliases": [
-      "bear"
-    ],
-    "image": "assets/animals/bear.webp"
-  },
-  {
-    "id": "bee",
-    "name": "Bee",
-    "aliases": [
-      "bee"
-    ],
-    "image": "assets/animals/bee.webp"
-  },
-  {
-    "id": "bison",
-    "name": "Bison",
-    "aliases": [
-      "bison"
-    ],
-    "image": "assets/animals/bison.webp"
-  },
-  {
-    "id": "boar",
-    "name": "Boar",
-    "aliases": [
-      "boar"
-    ],
-    "image": "assets/animals/boar.webp"
-  },
-  {
-    "id": "butterfly",
-    "name": "Butterfly",
-    "aliases": [
-      "butterfly"
-    ],
-    "image": "assets/animals/butterfly.webp"
-  },
-  {
-    "id": "cat",
-    "name": "Cat",
-    "aliases": [
-      "cat"
-    ],
-    "image": "assets/animals/cat.webp"
-  },
-  {
-    "id": "caterpillar",
-    "name": "Caterpillar",
-    "aliases": [
-      "caterpillar"
-    ],
-    "image": "assets/animals/caterpillar.webp"
-  },
-  {
-    "id": "chimpanzee",
-    "name": "Chimpanzee",
-    "aliases": [
-      "chimpanzee"
-    ],
-    "image": "assets/animals/chimpanzee.webp"
-  },
-  {
-    "id": "cow",
-    "name": "Cow",
-    "aliases": [
-      "cow"
-    ],
-    "image": "assets/animals/cow.webp"
-  },
-  {
-    "id": "coyote",
-    "name": "Coyote",
-    "aliases": [
-      "coyote"
-    ],
-    "image": "assets/animals/coyote.webp"
-  },
-  {
-    "id": "crab",
-    "name": "Crab",
-    "aliases": [
-      "crab"
-    ],
-    "image": "assets/animals/crab.webp"
-  },
-  {
-    "id": "crow",
-    "name": "Crow",
-    "aliases": [
-      "crow"
-    ],
-    "image": "assets/animals/crow.webp"
-  },
-  {
-    "id": "deer",
-    "name": "Deer",
-    "aliases": [
-      "deer"
-    ],
-    "image": "assets/animals/deer.webp"
-  },
-  {
-    "id": "dog",
-    "name": "Dog",
-    "aliases": [
-      "dog"
-    ],
-    "image": "assets/animals/dog.webp"
-  },
-  {
-    "id": "dolphin",
-    "name": "Dolphin",
-    "aliases": [
-      "dolphin"
-    ],
-    "image": "assets/animals/dolphin.webp"
-  },
-  {
-    "id": "donkey",
-    "name": "Donkey",
-    "aliases": [
-      "donkey"
-    ],
-    "image": "assets/animals/donkey.webp"
-  },
-  {
-    "id": "dragonfly",
-    "name": "Dragonfly",
-    "aliases": [
-      "dragonfly"
-    ],
-    "image": "assets/animals/dragonfly.webp"
-  },
-  {
-    "id": "duck",
-    "name": "Duck",
-    "aliases": [
-      "duck"
-    ],
-    "image": "assets/animals/duck.webp"
-  },
-  {
-    "id": "eagle",
-    "name": "Eagle",
-    "aliases": [
-      "eagle"
-    ],
-    "image": "assets/animals/eagle.webp"
-  },
-  {
-    "id": "elephant",
-    "name": "Elephant",
-    "aliases": [
-      "elephant"
-    ],
-    "image": "assets/animals/elephant.webp"
-  },
-  {
-    "id": "flamingo",
-    "name": "Flamingo",
-    "aliases": [
-      "flamingo"
-    ],
-    "image": "assets/animals/flamingo.webp"
-  },
-  {
-    "id": "fly",
-    "name": "Fly",
-    "aliases": [
-      "fly"
-    ],
-    "image": "assets/animals/fly.webp"
-  },
-  {
-    "id": "fox",
-    "name": "Fox",
-    "aliases": [
-      "fox"
-    ],
-    "image": "assets/animals/fox.webp"
-  },
-  {
-    "id": "goat",
-    "name": "Goat",
-    "aliases": [
-      "goat"
-    ],
-    "image": "assets/animals/goat.webp"
-  },
-  {
-    "id": "goldfish",
-    "name": "Goldfish",
-    "aliases": [
-      "goldfish"
-    ],
-    "image": "assets/animals/goldfish.webp"
-  },
-  {
-    "id": "goose",
-    "name": "Goose",
-    "aliases": [
-      "goose"
-    ],
-    "image": "assets/animals/goose.webp"
-  },
-  {
-    "id": "gorilla",
-    "name": "Gorilla",
-    "aliases": [
-      "gorilla"
-    ],
-    "image": "assets/animals/gorilla.webp"
-  },
-  {
-    "id": "grasshopper",
-    "name": "Grasshopper",
-    "aliases": [
-      "grasshopper"
-    ],
-    "image": "assets/animals/grasshopper.webp"
-  },
-  {
-    "id": "hamster",
-    "name": "Hamster",
-    "aliases": [
-      "hamster"
-    ],
-    "image": "assets/animals/hamster.webp"
-  },
-  {
-    "id": "hare",
-    "name": "Hare",
-    "aliases": [
-      "hare"
-    ],
-    "image": "assets/animals/hare.webp"
-  },
-  {
-    "id": "hedgehog",
-    "name": "Hedgehog",
-    "aliases": [
-      "hedgehog"
-    ],
-    "image": "assets/animals/hedgehog.webp"
-  },
-  {
-    "id": "hippopotamus",
-    "name": "Hippopotamus",
-    "aliases": [
-      "hippopotamus"
-    ],
-    "image": "assets/animals/hippopotamus.webp"
+    "image": "assets/animals/ox.webp"
   },
   {
     "id": "horse",
@@ -288,60 +16,44 @@
     "image": "assets/animals/horse.webp"
   },
   {
-    "id": "hummingbird",
-    "name": "Hummingbird",
+    "id": "fox",
+    "name": "Fox",
     "aliases": [
-      "hummingbird"
+      "fox"
     ],
-    "image": "assets/animals/hummingbird.webp"
+    "image": "assets/animals/fox.webp"
   },
   {
-    "id": "hyena",
-    "name": "Hyena",
+    "id": "grasshopper",
+    "name": "Grasshopper",
     "aliases": [
-      "hyena"
+      "grasshopper"
     ],
-    "image": "assets/animals/hyena.webp"
+    "image": "assets/animals/grasshopper.webp"
   },
   {
-    "id": "jellyfish",
-    "name": "Jellyfish",
+    "id": "porcupine",
+    "name": "Porcupine",
     "aliases": [
-      "jellyfish"
+      "porcupine"
     ],
-    "image": "assets/animals/jellyfish.webp"
+    "image": "assets/animals/porcupine.webp"
   },
   {
-    "id": "kangaroo",
-    "name": "Kangaroo",
+    "id": "whale",
+    "name": "Whale",
     "aliases": [
-      "kangaroo"
+      "whale"
     ],
-    "image": "assets/animals/kangaroo.webp"
+    "image": "assets/animals/whale.webp"
   },
   {
-    "id": "koala",
-    "name": "Koala",
+    "id": "crow",
+    "name": "Crow",
     "aliases": [
-      "koala"
+      "crow"
     ],
-    "image": "assets/animals/koala.webp"
-  },
-  {
-    "id": "ladybug",
-    "name": "Ladybug",
-    "aliases": [
-      "ladybug"
-    ],
-    "image": "assets/animals/ladybug.webp"
-  },
-  {
-    "id": "leopard",
-    "name": "Leopard",
-    "aliases": [
-      "leopard"
-    ],
-    "image": "assets/animals/leopard.webp"
+    "image": "assets/animals/crow.webp"
   },
   {
     "id": "lion",
@@ -352,44 +64,20 @@
     "image": "assets/animals/lion.webp"
   },
   {
+    "id": "hamster",
+    "name": "Hamster",
+    "aliases": [
+      "hamster"
+    ],
+    "image": "assets/animals/hamster.webp"
+  },
+  {
     "id": "lizard",
     "name": "Lizard",
     "aliases": [
       "lizard"
     ],
     "image": "assets/animals/lizard.webp"
-  },
-  {
-    "id": "mosquito",
-    "name": "Mosquito",
-    "aliases": [
-      "mosquito"
-    ],
-    "image": "assets/animals/mosquito.webp"
-  },
-  {
-    "id": "moth",
-    "name": "Moth",
-    "aliases": [
-      "moth"
-    ],
-    "image": "assets/animals/moth.webp"
-  },
-  {
-    "id": "mouse",
-    "name": "Mouse",
-    "aliases": [
-      "mouse"
-    ],
-    "image": "assets/animals/mouse.webp"
-  },
-  {
-    "id": "octopus",
-    "name": "Octopus",
-    "aliases": [
-      "octopus"
-    ],
-    "image": "assets/animals/octopus.webp"
   },
   {
     "id": "orangutan",
@@ -408,6 +96,30 @@
     "image": "assets/animals/otter.webp"
   },
   {
+    "id": "wombat",
+    "name": "Wombat",
+    "aliases": [
+      "wombat"
+    ],
+    "image": "assets/animals/wombat.webp"
+  },
+  {
+    "id": "bat",
+    "name": "Bat",
+    "aliases": [
+      "bat"
+    ],
+    "image": "assets/animals/bat.webp"
+  },
+  {
+    "id": "goldfish",
+    "name": "Goldfish",
+    "aliases": [
+      "goldfish"
+    ],
+    "image": "assets/animals/goldfish.webp"
+  },
+  {
     "id": "owl",
     "name": "Owl",
     "aliases": [
@@ -416,60 +128,12 @@
     "image": "assets/animals/owl.webp"
   },
   {
-    "id": "ox",
-    "name": "Ox",
+    "id": "cat",
+    "name": "Cat",
     "aliases": [
-      "ox"
+      "cat"
     ],
-    "image": "assets/animals/ox.webp"
-  },
-  {
-    "id": "panda",
-    "name": "Panda",
-    "aliases": [
-      "panda"
-    ],
-    "image": "assets/animals/panda.webp"
-  },
-  {
-    "id": "parrot",
-    "name": "Parrot",
-    "aliases": [
-      "parrot"
-    ],
-    "image": "assets/animals/parrot.webp"
-  },
-  {
-    "id": "penguin",
-    "name": "Penguin",
-    "aliases": [
-      "penguin"
-    ],
-    "image": "assets/animals/penguin.webp"
-  },
-  {
-    "id": "pig",
-    "name": "Pig",
-    "aliases": [
-      "pig"
-    ],
-    "image": "assets/animals/pig.webp"
-  },
-  {
-    "id": "pigeon",
-    "name": "Pigeon",
-    "aliases": [
-      "pigeon"
-    ],
-    "image": "assets/animals/pigeon.webp"
-  },
-  {
-    "id": "porcupine",
-    "name": "Porcupine",
-    "aliases": [
-      "porcupine"
-    ],
-    "image": "assets/animals/porcupine.webp"
+    "image": "assets/animals/cat.webp"
   },
   {
     "id": "raccoon",
@@ -480,68 +144,20 @@
     "image": "assets/animals/raccoon.webp"
   },
   {
-    "id": "reindeer",
-    "name": "Reindeer",
+    "id": "dolphin",
+    "name": "Dolphin",
     "aliases": [
-      "reindeer"
+      "dolphin"
     ],
-    "image": "assets/animals/reindeer.webp"
+    "image": "assets/animals/dolphin.webp"
   },
   {
-    "id": "rhinoceros",
-    "name": "Rhinoceros",
+    "id": "ladybug",
+    "name": "Ladybug",
     "aliases": [
-      "rhinoceros"
+      "ladybug"
     ],
-    "image": "assets/animals/rhinoceros.webp"
-  },
-  {
-    "id": "sea-turtle",
-    "name": "Sea Turtle",
-    "aliases": [
-      "sea turtle"
-    ],
-    "image": "assets/animals/sea-turtle.webp"
-  },
-  {
-    "id": "seahorse",
-    "name": "Seahorse",
-    "aliases": [
-      "seahorse"
-    ],
-    "image": "assets/animals/seahorse.webp"
-  },
-  {
-    "id": "seal",
-    "name": "Seal",
-    "aliases": [
-      "seal"
-    ],
-    "image": "assets/animals/seal.webp"
-  },
-  {
-    "id": "shark",
-    "name": "Shark",
-    "aliases": [
-      "shark"
-    ],
-    "image": "assets/animals/shark.webp"
-  },
-  {
-    "id": "sheep",
-    "name": "Sheep",
-    "aliases": [
-      "sheep"
-    ],
-    "image": "assets/animals/sheep.webp"
-  },
-  {
-    "id": "snake",
-    "name": "Snake",
-    "aliases": [
-      "snake"
-    ],
-    "image": "assets/animals/snake.webp"
+    "image": "assets/animals/ladybug.webp"
   },
   {
     "id": "squirrel",
@@ -552,28 +168,92 @@
     "image": "assets/animals/squirrel.webp"
   },
   {
-    "id": "starfish",
-    "name": "Starfish",
+    "id": "bear",
+    "name": "Bear",
     "aliases": [
-      "starfish"
+      "bear"
     ],
-    "image": "assets/animals/starfish.webp"
+    "image": "assets/animals/bear.webp"
   },
   {
-    "id": "swan",
-    "name": "Swan",
+    "id": "goose",
+    "name": "Goose",
     "aliases": [
-      "swan"
+      "goose"
     ],
-    "image": "assets/animals/swan.webp"
+    "image": "assets/animals/goose.webp"
   },
   {
-    "id": "tiger",
-    "name": "Tiger",
+    "id": "leopard",
+    "name": "Leopard",
     "aliases": [
-      "tiger"
+      "leopard"
     ],
-    "image": "assets/animals/tiger.webp"
+    "image": "assets/animals/leopard.webp"
+  },
+  {
+    "id": "snake",
+    "name": "Snake",
+    "aliases": [
+      "snake"
+    ],
+    "image": "assets/animals/snake.webp"
+  },
+  {
+    "id": "shark",
+    "name": "Shark",
+    "aliases": [
+      "shark"
+    ],
+    "image": "assets/animals/shark.webp"
+  },
+  {
+    "id": "dragonfly",
+    "name": "Dragonfly",
+    "aliases": [
+      "dragonfly"
+    ],
+    "image": "assets/animals/dragonfly.webp"
+  },
+  {
+    "id": "dog",
+    "name": "Dog",
+    "aliases": [
+      "dog"
+    ],
+    "image": "assets/animals/dog.webp"
+  },
+  {
+    "id": "butterfly",
+    "name": "Butterfly",
+    "aliases": [
+      "butterfly"
+    ],
+    "image": "assets/animals/butterfly.webp"
+  },
+  {
+    "id": "octopus",
+    "name": "Octopus",
+    "aliases": [
+      "octopus"
+    ],
+    "image": "assets/animals/octopus.webp"
+  },
+  {
+    "id": "seal",
+    "name": "Seal",
+    "aliases": [
+      "seal"
+    ],
+    "image": "assets/animals/seal.webp"
+  },
+  {
+    "id": "hummingbird",
+    "name": "Hummingbird",
+    "aliases": [
+      "hummingbird"
+    ],
+    "image": "assets/animals/hummingbird.webp"
   },
   {
     "id": "turkey",
@@ -584,28 +264,100 @@
     "image": "assets/animals/turkey.webp"
   },
   {
-    "id": "whale",
-    "name": "Whale",
+    "id": "koala",
+    "name": "Koala",
     "aliases": [
-      "whale"
+      "koala"
     ],
-    "image": "assets/animals/whale.webp"
+    "image": "assets/animals/koala.webp"
   },
   {
-    "id": "wolf",
-    "name": "Wolf",
+    "id": "boar",
+    "name": "Boar",
     "aliases": [
-      "wolf"
+      "boar"
     ],
-    "image": "assets/animals/wolf.webp"
+    "image": "assets/animals/boar.webp"
   },
   {
-    "id": "wombat",
-    "name": "Wombat",
+    "id": "donkey",
+    "name": "Donkey",
     "aliases": [
-      "wombat"
+      "donkey"
     ],
-    "image": "assets/animals/wombat.webp"
+    "image": "assets/animals/donkey.webp"
+  },
+  {
+    "id": "cow",
+    "name": "Cow",
+    "aliases": [
+      "cow"
+    ],
+    "image": "assets/animals/cow.webp"
+  },
+  {
+    "id": "zebra",
+    "name": "Zebra",
+    "aliases": [
+      "zebra"
+    ],
+    "image": "assets/animals/zebra.webp"
+  },
+  {
+    "id": "kangaroo",
+    "name": "Kangaroo",
+    "aliases": [
+      "kangaroo"
+    ],
+    "image": "assets/animals/kangaroo.webp"
+  },
+  {
+    "id": "antelope",
+    "name": "Antelope",
+    "aliases": [
+      "antelope"
+    ],
+    "image": "assets/animals/antelope.webp"
+  },
+  {
+    "id": "pig",
+    "name": "Pig",
+    "aliases": [
+      "pig"
+    ],
+    "image": "assets/animals/pig.webp"
+  },
+  {
+    "id": "parrot",
+    "name": "Parrot",
+    "aliases": [
+      "parrot"
+    ],
+    "image": "assets/animals/parrot.webp"
+  },
+  {
+    "id": "seahorse",
+    "name": "Seahorse",
+    "aliases": [
+      "seahorse"
+    ],
+    "image": "assets/animals/seahorse.webp"
+  },
+  {
+    "id": "pigeon",
+    "name": "Pigeon",
+    "aliases": [
+      "pigeon"
+    ],
+    "image": "assets/animals/pigeon.webp"
+  },
+  {
+    "id": "gorilla",
+    "name": "Gorilla",
+    "aliases": [
+      "gorilla"
+    ],
+    "image": "assets/animals/gorilla.webp"
   },
   {
     "id": "woodpecker",
@@ -616,11 +368,259 @@
     "image": "assets/animals/woodpecker.webp"
   },
   {
-    "id": "zebra",
-    "name": "Zebra",
+    "id": "swan",
+    "name": "Swan",
     "aliases": [
-      "zebra"
+      "swan"
     ],
-    "image": "assets/animals/zebra.webp"
+    "image": "assets/animals/swan.webp"
+  },
+  {
+    "id": "eagle",
+    "name": "Eagle",
+    "aliases": [
+      "eagle"
+    ],
+    "image": "assets/animals/eagle.webp"
+  },
+  {
+    "id": "coyote",
+    "name": "Coyote",
+    "aliases": [
+      "coyote"
+    ],
+    "image": "assets/animals/coyote.webp"
+  },
+  {
+    "id": "bee",
+    "name": "Bee",
+    "aliases": [
+      "bee"
+    ],
+    "image": "assets/animals/bee.webp"
+  },
+  {
+    "id": "reindeer",
+    "name": "Reindeer",
+    "aliases": [
+      "reindeer"
+    ],
+    "image": "assets/animals/reindeer.webp"
+  },
+  {
+    "id": "crab",
+    "name": "Crab",
+    "aliases": [
+      "crab"
+    ],
+    "image": "assets/animals/crab.webp"
+  },
+  {
+    "id": "caterpillar",
+    "name": "Caterpillar",
+    "aliases": [
+      "caterpillar"
+    ],
+    "image": "assets/animals/caterpillar.webp"
+  },
+  {
+    "id": "chimpanzee",
+    "name": "Chimpanzee",
+    "aliases": [
+      "chimpanzee"
+    ],
+    "image": "assets/animals/chimpanzee.webp"
+  },
+  {
+    "id": "hare",
+    "name": "Hare",
+    "aliases": [
+      "hare"
+    ],
+    "image": "assets/animals/hare.webp"
+  },
+  {
+    "id": "hyena",
+    "name": "Hyena",
+    "aliases": [
+      "hyena"
+    ],
+    "image": "assets/animals/hyena.webp"
+  },
+  {
+    "id": "goat",
+    "name": "Goat",
+    "aliases": [
+      "goat"
+    ],
+    "image": "assets/animals/goat.webp"
+  },
+  {
+    "id": "sea-turtle",
+    "name": "Sea Turtle",
+    "aliases": [
+      "sea turtle"
+    ],
+    "image": "assets/animals/sea-turtle.webp"
+  },
+  {
+    "id": "sheep",
+    "name": "Sheep",
+    "aliases": [
+      "sheep"
+    ],
+    "image": "assets/animals/sheep.webp"
+  },
+  {
+    "id": "bison",
+    "name": "Bison",
+    "aliases": [
+      "bison"
+    ],
+    "image": "assets/animals/bison.webp"
+  },
+  {
+    "id": "moth",
+    "name": "Moth",
+    "aliases": [
+      "moth"
+    ],
+    "image": "assets/animals/moth.webp"
+  },
+  {
+    "id": "rhinoceros",
+    "name": "Rhinoceros",
+    "aliases": [
+      "rhinoceros"
+    ],
+    "image": "assets/animals/rhinoceros.webp"
+  },
+  {
+    "id": "starfish",
+    "name": "Starfish",
+    "aliases": [
+      "starfish"
+    ],
+    "image": "assets/animals/starfish.webp"
+  },
+  {
+    "id": "mosquito",
+    "name": "Mosquito",
+    "aliases": [
+      "mosquito"
+    ],
+    "image": "assets/animals/mosquito.webp"
+  },
+  {
+    "id": "flamingo",
+    "name": "Flamingo",
+    "aliases": [
+      "flamingo"
+    ],
+    "image": "assets/animals/flamingo.webp"
+  },
+  {
+    "id": "elephant",
+    "name": "Elephant",
+    "aliases": [
+      "elephant"
+    ],
+    "image": "assets/animals/elephant.webp"
+  },
+  {
+    "id": "hedgehog",
+    "name": "Hedgehog",
+    "aliases": [
+      "hedgehog"
+    ],
+    "image": "assets/animals/hedgehog.webp"
+  },
+  {
+    "id": "tiger",
+    "name": "Tiger",
+    "aliases": [
+      "tiger"
+    ],
+    "image": "assets/animals/tiger.webp"
+  },
+  {
+    "id": "deer",
+    "name": "Deer",
+    "aliases": [
+      "deer"
+    ],
+    "image": "assets/animals/deer.webp"
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "aliases": [
+      "wolf"
+    ],
+    "image": "assets/animals/wolf.webp"
+  },
+  {
+    "id": "duck",
+    "name": "Duck",
+    "aliases": [
+      "duck"
+    ],
+    "image": "assets/animals/duck.webp"
+  },
+  {
+    "id": "penguin",
+    "name": "Penguin",
+    "aliases": [
+      "penguin"
+    ],
+    "image": "assets/animals/penguin.webp"
+  },
+  {
+    "id": "hippopotamus",
+    "name": "Hippopotamus",
+    "aliases": [
+      "hippopotamus"
+    ],
+    "image": "assets/animals/hippopotamus.webp"
+  },
+  {
+    "id": "fly",
+    "name": "Fly",
+    "aliases": [
+      "fly"
+    ],
+    "image": "assets/animals/fly.webp"
+  },
+  {
+    "id": "mouse",
+    "name": "Mouse",
+    "aliases": [
+      "mouse"
+    ],
+    "image": "assets/animals/mouse.webp"
+  },
+  {
+    "id": "jellyfish",
+    "name": "Jellyfish",
+    "aliases": [
+      "jellyfish"
+    ],
+    "image": "assets/animals/jellyfish.webp"
+  },
+  {
+    "id": "badger",
+    "name": "Badger",
+    "aliases": [
+      "badger"
+    ],
+    "image": "assets/animals/badger.webp"
+  },
+  {
+    "id": "panda",
+    "name": "Panda",
+    "aliases": [
+      "panda"
+    ],
+    "image": "assets/animals/panda.webp"
   }
 ]
