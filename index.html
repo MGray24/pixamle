@@ -7,27 +7,47 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>Pixamle</h1>
+  <main class="page">
+    <section class="info-card">
+      <h2>How to Play</h2>
 
-    <canvas id="animalCanvas"></canvas>
+      <p>Guess today's hidden animal.</p>
+      <p>Each wrong guess makes the image clearer.</p>
+      <p>Try to solve it before the full picture is revealed.</p>
 
-    <form id="guessForm">
-      <input
-        id="guessInput"
-        type="text"
-        placeholder="Guess the animal..."
-        autocomplete="off"
-      >
+      <div class="demo-strip">
+        <img src="https://placehold.co/72x72/65c466/0b0f14?text=4" alt="Very pixelated example">
+        <span>→</span>
+        <img src="https://placehold.co/72x72/65c466/0b0f14?text=8" alt="Less pixelated example">
+        <span>→</span>
+        <img src="https://placehold.co/72x72/65c466/0b0f14?text=16" alt="Clearer example">
+      </div>
+    </section>
 
-      <button type="submit">Guess</button>
-    </form>
+    <section class="game-card">
+      <h1>Pixamle</h1>
 
-    <p id="message"></p>
-    <p id="wrongGuesses"></p>
+      <div class="canvas-frame">
+        <canvas id="animalCanvas"></canvas>
+      </div>
 
-    <!-- DEV ONLY - DELETE OR COMMENT OUT BEFORE RELEASE -->
-    <p id="devAnswer"></p>
+      <form id="guessForm">
+        <input
+          id="guessInput"
+          type="text"
+          placeholder="Guess an animal..."
+          autocomplete="off"
+        >
+
+        <button type="submit">Guess</button>
+      </form>
+
+      <p id="message"></p>
+      <p id="wrongGuesses"></p>
+
+      <!-- DEV ONLY - comment out before release
+      <p id="devAnswer"></p> -->
+    </section>
   </main>
 
   <script src="app.js"></script>

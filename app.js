@@ -30,28 +30,14 @@ async function loadAnimals() {
     drawAnimal();
     updateWrongGuessText();
 
-    // DEV ONLY
-    devAnswer.textContent = `Answer: ${currentAnimal.name}`;
+    // DEV ONLY - comment out before release
+    // devAnswer.textContent = `Answer: ${currentAnimal.name}`;
   };
 }
 
 function chooseTodaysAnimal() {
-  const today = new Date();
-
-  const dateString =
-    today.getFullYear() +
-    "-" +
-    (today.getMonth() + 1) +
-    "-" +
-    today.getDate();
-
-  let total = 0;
-
-  for (let i = 0; i < dateString.length; i++) {
-    total += dateString.charCodeAt(i);
-  }
-
-  const index = total % animals.length;
+  const daysSinceEpoch = Math.floor(Date.now() / 86400000);
+  const index = daysSinceEpoch % animals.length;
 
   return animals[index];
 }
@@ -127,7 +113,6 @@ guessForm.addEventListener("submit", event => {
     message.textContent = `Correct! It was ${currentAnimal.name}.`;
 
     pixelResolution = canvas.width;
-
     drawAnimal();
 
     guessInput.disabled = true;
@@ -141,7 +126,7 @@ guessForm.addEventListener("submit", event => {
       pixelResolution = canvas.width;
     }
 
-    message.textContent = "Incorrect.";
+    message.textContent = "Incorrect. The image is clearer now.";
 
     drawAnimal();
     updateWrongGuessText();
@@ -151,8 +136,7 @@ guessForm.addEventListener("submit", event => {
 });
 
 function updateWrongGuessText() {
-  wrongGuessesText.textContent =
-    `Wrong guesses: ${wrongGuesses}`;
+  wrongGuessesText.textContent = `Wrong guesses: ${wrongGuesses}`;
 }
 
 loadAnimals();
