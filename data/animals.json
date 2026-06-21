@@ -75,7 +75,7 @@
     "id": "lizard",
     "name": "Lizard",
     "aliases": [
-      "lizard"
+      "lizard", "gecko", "iguana"
     ],
     "image": "assets/animals/lizard.webp"
   },
