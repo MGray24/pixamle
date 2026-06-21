@@ -3,6 +3,8 @@ const ctx = canvas.getContext("2d");
 
 const guessForm = document.getElementById("guessForm");
 const guessInput = document.getElementById("guessInput");
+const skipButton = document.getElementById("skipButton");
+const suggestions = document.getElementById("suggestions");
 
 const playArea = document.getElementById("playArea");
 const message = document.getElementById("message");
@@ -16,8 +18,12 @@ const resultText = document.getElementById("resultText");
 // const devAnswer = document.getElementById("devAnswer");
 
 const MAX_WRONG_GUESSES = 6;
+const MAX_SUGGESTIONS = 3;
 
 let animals = [];
+let validGuesses = [];
+let validGuessSet = new Set();
+
 let currentAnimal = null;
 let animalImage = new Image();
 
@@ -25,9 +31,9 @@ let wrongGuesses = 0;
 let pixelResolution = 4;
 let gameOver = false;
 
-async function loadAnimals() {
-  const response = await fetch("data/animals.json");
-  animals = await response.json();
+async function loadGame() {
+  await loadAnimals();
+  await loadChoices();
 
   currentAnimal = chooseTodaysAnimal();
 
@@ -45,6 +51,27 @@ async function loadAnimals() {
     // DEV ONLY
     // devAnswer.textContent = `Answer: ${currentAnimal.name}`;
   };
+}
+
+async function loadAnimals() {
+  const response = await fetch("data/animals.json");
+  animals = await response.json();
+}
+
+async function loadChoices() {
+  const response = await fetch("data/choices.txt");
+  const text = await response.text();
+
+  validGuesses = text
+    .split("\n")
+    .map(line => normalizeGuess(line))
+    .filter(line => line.length > 0);
+
+  validGuessSet = new Set(validGuesses);
+}
+
+function normalizeGuess(text) {
+  return text.trim().toLowerCase();
 }
 
 function chooseTodaysAnimal() {
@@ -142,6 +169,27 @@ function drawOriginalImage() {
   );
 }
 
+guessInput.addEventListener("input", () => {
+  guessInput.classList.remove("invalid-guess");
+
+  const input = normalizeGuess(guessInput.value);
+
+  if (input === "") {
+    hideSuggestions();
+    return;
+  }
+
+  const matches = getClosestGuesses(input);
+  showSuggestions(matches);
+});
+
+guessInput.addEventListener("blur", () => {
+  /*
+    Small delay so clicking a suggestion works before the menu disappears.
+  */
+  setTimeout(hideSuggestions, 120);
+});
+
 guessForm.addEventListener("submit", event => {
   event.preventDefault();
 
@@ -149,27 +197,49 @@ guessForm.addEventListener("submit", event => {
     return;
   }
 
-  const guess = guessInput.value.trim().toLowerCase();
+  const guess = normalizeGuess(guessInput.value);
 
   if (guess === "") {
     return;
   }
 
-  const validAnswers = [
-    currentAnimal.name.toLowerCase(),
-    ...currentAnimal.aliases.map(alias => alias.toLowerCase())
-  ];
+  if (!validGuessSet.has(guess)) {
+    message.textContent = "That animal isn't recognized, try another.";
+    guessInput.classList.add("invalid-guess");
+    return;
+  }
 
-  if (validAnswers.includes(guess)) {
+  submitGuess(guess);
+});
+
+skipButton.addEventListener("click", () => {
+  if (gameOver) {
+    return;
+  }
+
+  hideSuggestions();
+  guessInput.value = "";
+
+  handleWrongGuess("Skipped. The image is clearer now.");
+});
+
+function submitGuess(guess) {
+  const correctAnswers = [
+    currentAnimal.name,
+    ...currentAnimal.aliases
+  ].map(answer => normalizeGuess(answer));
+
+  if (correctAnswers.includes(guess)) {
     winGame();
   } else {
-    handleWrongGuess();
+    handleWrongGuess("Not quite. The image is clearer now.");
   }
 
   guessInput.value = "";
-});
+  hideSuggestions();
+}
 
-function handleWrongGuess() {
+function handleWrongGuess(newMessage) {
   wrongGuesses++;
 
   pixelResolution *= 2;
@@ -184,7 +254,7 @@ function handleWrongGuess() {
   if (wrongGuesses >= MAX_WRONG_GUESSES) {
     loseGame();
   } else {
-    message.textContent = "Not quite, The image is clearer now";
+    message.textContent = newMessage;
   }
 }
 
@@ -218,7 +288,116 @@ function loseGame() {
     `The animal was ${currentAnimal.name}. Try again tomorrow.`;
 }
 
-//demo image handling
+function getClosestGuesses(input) {
+  /*
+    First priority:
+    guesses that start with what the user typed.
+  */
+  const startsWithMatches = validGuesses.filter(choice =>
+    choice.startsWith(input)
+  );
+
+  /*
+    Second priority:
+    guesses that contain what the user typed somewhere.
+  */
+  const containsMatches = validGuesses.filter(choice =>
+    !choice.startsWith(input) && choice.includes(input)
+  );
+
+  const directMatches = [
+    ...startsWithMatches,
+    ...containsMatches
+  ];
+
+  if (directMatches.length >= MAX_SUGGESTIONS) {
+    return directMatches.slice(0, MAX_SUGGESTIONS);
+  }
+
+  /*
+    If there are not enough direct matches, use edit distance.
+    This catches typos like "giraf" -> "giraffe".
+  */
+  const fuzzyMatches = validGuesses
+    .filter(choice => !directMatches.includes(choice))
+    .map(choice => ({
+      choice: choice,
+      distance: levenshteinDistance(input, choice)
+    }))
+    .sort((a, b) => a.distance - b.distance)
+    .map(item => item.choice);
+
+  return [
+    ...directMatches,
+    ...fuzzyMatches
+  ].slice(0, MAX_SUGGESTIONS);
+}
+
+function showSuggestions(matches) {
+  suggestions.innerHTML = "";
+
+  if (matches.length === 0) {
+    hideSuggestions();
+    return;
+  }
+
+  for (const match of matches) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.classList.add("suggestion-button");
+    button.textContent = toTitleCase(match);
+
+    button.addEventListener("mousedown", () => {
+      guessInput.value = match;
+      hideSuggestions();
+    });
+
+    suggestions.appendChild(button);
+  }
+
+  suggestions.classList.remove("hidden");
+}
+
+function hideSuggestions() {
+  suggestions.classList.add("hidden");
+}
+
+function toTitleCase(text) {
+  return text
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function levenshteinDistance(a, b) {
+  const table = [];
+
+  for (let row = 0; row <= a.length; row++) {
+    table[row] = [];
+    table[row][0] = row;
+  }
+
+  for (let col = 0; col <= b.length; col++) {
+    table[0][col] = col;
+  }
+
+  for (let row = 1; row <= a.length; row++) {
+    for (let col = 1; col <= b.length; col++) {
+      const cost = a[row - 1] === b[col - 1] ? 0 : 1;
+
+      table[row][col] = Math.min(
+        table[row - 1][col] + 1,
+        table[row][col - 1] + 1,
+        table[row - 1][col - 1] + cost
+      );
+    }
+  }
+
+  return table[a.length][b.length];
+}
+
+// demo image handling
 function loadDemoImages() {
   const demoImage = new Image();
 
@@ -270,5 +449,5 @@ function drawPixelatedDemoImage(demoCanvas, demoImage, resolution) {
   );
 }
 
-loadAnimals();
+loadGame();
 loadDemoImages();

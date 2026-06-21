@@ -187,6 +187,64 @@ button:hover {
   background: #7ee27f;
 }
 
+.input-wrap {
+  position: relative;
+}
+
+.secondary-button {
+  color: #f2f5f7;
+  background: #10161c;
+  border: 1px solid #303a45;
+}
+
+.secondary-button:hover {
+  background: #1a232c;
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+
+  background: #10161c;
+  border: 1px solid #303a45;
+  border-radius: 12px;
+
+  z-index: 10;
+  padding: 6px;
+}
+
+.suggestion-button {
+  width: 100%;
+  padding: 10px 12px;
+
+  text-align: left;
+  color: #f2f5f7;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.suggestion-button:hover {
+  background: #1f2a33;
+}
+
+.suggestion-button.active {
+  background: #65c466;
+  color: #0b0f14;
+}
+
+.invalid-guess {
+  border-color: #e06c75;
+}
+
 #message {
   min-height: 24px;
   margin: 14px 0 10px;
@@ -301,6 +359,7 @@ button:hover {
     align-items: center;
   }
 
+  .input-wrap,
   input,
   button {
     width: min(330px, 76vw);

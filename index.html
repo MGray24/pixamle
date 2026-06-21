@@ -46,14 +46,19 @@
 
       <div id="playArea">
         <form id="guessForm">
-          <input
-            id="guessInput"
-            type="text"
-            placeholder="Guess an animal..."
-            autocomplete="off"
-          >
+          <div class="input-wrap">
+            <input
+              id="guessInput"
+              type="text"
+              placeholder="Guess an animal..."
+              autocomplete="off"
+            >
+
+            <div id="suggestions" class="suggestions hidden"></div>
+          </div>
 
           <button type="submit">Guess</button>
+          <button id="skipButton" type="button" class="secondary-button">Skip</button>
         </form>
 
         <p id="message"></p>
