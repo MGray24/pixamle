@@ -62,12 +62,13 @@ async function loadChoices() {
   const response = await fetch("data/choices.txt");
   const text = await response.text();
 
-  validGuesses = text
+  const choices = text
     .split("\n")
     .map(line => normalizeGuess(line))
     .filter(line => line.length > 0);
 
-  validGuessSet = new Set(validGuesses);
+  validGuessSet = new Set(choices);
+  validGuesses = [...validGuessSet];
 }
 
 function normalizeGuess(text) {
