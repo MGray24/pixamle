@@ -40,7 +40,7 @@ async function loadAnimals() {
     createGuessSlots();
     drawAnimal();
 
-    message.textContent = "Make your first guess.";
+    message.textContent = "Make your first guess";
 
     // DEV ONLY
     // devAnswer.textContent = `Answer: ${currentAnimal.name}`;
@@ -184,7 +184,7 @@ function handleWrongGuess() {
   if (wrongGuesses >= MAX_WRONG_GUESSES) {
     loseGame();
   } else {
-    message.textContent = "Incorrect. The image is clearer now.";
+    message.textContent = "Not quite, The image is clearer now";
   }
 }
 
@@ -201,7 +201,7 @@ function winGame() {
 
   resultTitle.textContent = "You got it!";
   resultText.textContent =
-    `It was ${currentAnimal.name}. You solved it in ${totalGuesses} guesses.`;
+    `It was ${currentAnimal.name}. You solved it in ${totalGuesses} guesses!`;
 }
 
 function loseGame() {
