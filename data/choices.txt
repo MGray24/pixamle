@@ -42,7 +42,7 @@ hyena
 jellyfish
 kangaroo
 koala
-ladybugs
+ladybug
 leopard
 lion
 lizard
